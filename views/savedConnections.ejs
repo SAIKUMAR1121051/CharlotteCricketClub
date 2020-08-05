@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Saved Connections</title>
+ <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+</head>
+<body>
+  <%- include ('partials/header2.ejs'); %>
+ 	<%- include ('partials/navigation2.ejs') -%>
+<main id=savedHeight>
+<div class="ConHeading paddingForTable">
+  <h2>Connections</h2>
+  </div>
+  <div class="paddingForTable">
+    	<% if(userConnectionsList.length>0){ %>
+  <table id="customers">
+  <tr>
+    <th>CONNECTION</th>
+    <th>MATCH TYPE</th>
+    <th>GOING?</th>
+    <th></th>
+  </tr>
+<%  userConnectionsList.forEach(function(savCon){ %>
+  <tr>
+    <td><%=savCon.connectionName  %></td>
+    <td><%=savCon.connectionTopic %></td>
+    <td><%=savCon.rsvp  %></td>
+    <td>
+<form>
+    <button class="button" formmethod="post" formaction="/connection?id=<%= savCon.connectionID %>">Update</button>
+    <input type="hidden"  name="rsvp" value="rsvp">
+    <button class="button button3" formmethod="post" formaction="/savedConnections?id=<%=savCon.connectionID%>&action=delete">Delete</button>
+</form>
+</td>
+  </tr>
+  <%  }); %>
+</table>
+<% } else{ %>
+  <div>
+  <p>Please select ateast one connection</p>
+</div>
+<% } %>
+</div>
+</main>
+<%- include ('partials/footer.ejs'); -%>
+</body>
+</html>

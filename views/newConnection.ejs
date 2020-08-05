@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>New Connection</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+	</head>
+	<body>
+		<% if(session!=undefined){ %>
+			<%- include ('partials/header2.ejs'); %>
+			  <%- include ('partials/navigation2.ejs') -%>
+			<% } else{ %>
+			  <%- include ('partials/header.ejs'); %>
+			  <%- include ('partials/navigation.ejs') -%>
+			<% } %>
+		<main id="newConMain">
+			
+			
+	  <form method="POST" action="/newConnection">
+		<div id="newConnectionForm">
+	    <label for="topic">Topic</label>
+		<input type="text" id="topic" name="topic"  placeholder="topic.." required>
+		<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'topic') {%><%=error.msg%><%}%><%})%><%}%></label><br><br>
+	
+
+	    <label for="name">Name</label>
+		<input type="text" id="name" name="name" placeholder="name.." required>
+		<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'name') {%><%=error.msg%><%}%><%})%><%}%></label><br><br>
+
+		<label for="details">Details</label>
+		<input type="text" id="details" name="details" placeholder="description.." required>
+		<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'details') {%><%=error.msg%><%}%><%})%><%}%></label><br><br>
+
+		<label for="where">Where</label>
+		<input type="text" id="where" name="where"  placeholder="location.." required>	
+		<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'where') {%><%=error.msg%><%}%><%})%><%}%></label><br><br>
+		
+		<label for="when">When</label>
+		<input id="when" name="when" type="datetime-local" required>
+		<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'when') {%><%=error.msg%><%}%><%})%><%}%></label><br><br>
+
+		<button type="submit">Create New Connection</button>
+	</div>
+	  </form>
+	
+	</main>
+<%- include ('partials/footer.ejs'); -%>
+	</body>
+</html>

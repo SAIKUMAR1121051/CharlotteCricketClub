@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+      <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+  </head>
+  <body>
+   <% if(session!=undefined){ %>
+    <%- include ('partials/header2.ejs'); %>
+      <%- include ('partials/navigation2.ejs') -%>
+    <% } else{ %>
+      <%- include ('partials/header.ejs'); %>
+      <%- include ('partials/navigation.ejs') -%>
+    <% } %>
+ 
+    <main>
+      <p>Hey this is Sai Kumar</p>
+      <p>404 error. No such page found. Please check the url and send request again</p>
+    </main>
+    <%- include ('partials/footer.ejs'); -%>
+  </body>
+</html>

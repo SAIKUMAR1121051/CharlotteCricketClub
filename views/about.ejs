@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+  </head>
+  <body>
+    <% if(session!=undefined){ %>
+      <%- include ('partials/header2.ejs'); %>
+        <%- include ('partials/navigation2.ejs') -%>
+      <% } else{ %>
+        <%- include ('partials/header.ejs'); %>
+        <%- include ('partials/navigation.ejs') -%>
+      <% } %>
+<main>
+  <div class="aboutData">
+    <h2>League Web Portal</h2>
+    <p>CricClubs league management solution provides all the tools necessary for Cricket administrators to manage their league with ease. With an instant league website, 5-minute tournament setup, match center, automatic points table, comprehensive statistics, mobile app, News, Picture Gallery, Social media integrations and much more, CricClubs puts technology at your finger tips!
+    </p>
+  </div>
+
+  <div class="aboutData">
+    <h2>Live Scoring App</h2>
+    <p>With CricClubs mobile app, matches can be scored ball-by-ball live using Android, Apple or Windows smart phones. The scores get updated real-time on league website and mobile apps so the players, fans and followers can follow any local game as it happens live!</p>
+  </div>
+
+</main>
+<%- include ('partials/footer.ejs'); -%>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+ <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+</head>
+<body>
+  <% if(session!=undefined){ %>
+    <%- include ('partials/header2.ejs'); %>
+      <%- include ('partials/navigation2.ejs') -%>
+    <% } else{ %>
+      <%- include ('partials/header.ejs'); %>
+      <%- include ('partials/navigation.ejs') -%>
+    <% } %>
+<main>
+<div>
+<div id=slider>
+  <img class="mySlides" alt="cricket Images" src="/assets/images/cricket_04.jpg">
+  <img class="mySlides" alt="cricket Images" src="/assets/images/cricket_05.jpg">
+  <img class="mySlides" alt="cricket Images"  src="/assets/images/cricket_03.jpg">
+</div>
+
+<script src="/assets/scripts/script.js"></script>
+ 							<div class="homeText">
+ 								<span class="welcome">Welcome!</span>
+ 								<p class="text-center">
+                    Do you love cricket?
+                </p><p>
+                  Charlotte cricket is here for you! Our website has all the details about all the present and upcoming matches happening in and around charlotte. Register with us to get all the updates. Check out our connections page to know all the details.
+                </p>
+ 							</div>
+</div>
+</main>
+<%- include ('partials/footer.ejs'); -%>
+</body>
+</html>

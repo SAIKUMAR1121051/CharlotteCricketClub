@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+     <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+  </head>
+  <body>
+    <% if(session!=undefined){ %>
+      <%- include ('partials/header2.ejs'); %>
+        <%- include ('partials/navigation2.ejs') -%>
+      <% } else{ %>
+        <%- include ('partials/header.ejs'); %>
+        <%- include ('partials/navigation.ejs') -%>
+      <% } %>
+    <main>
+      <div id="loginDiv">
+        <div class="formDiv">
+      <h2>Welcome to Charlotte Cricket Club</h2>
+				<label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'notification') {%><%=error.msg%><%}%><%})%><%}%></label>
+        <h3>Please enter you Username and Password to signin.</h3>
+      
+      
+      <form action="/login" id="loginForm" method="POST">
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username or email" id="uname" name="uname" required>
+    <label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'uname') {%><%-error.msg%><%}%><%})%><%}%></label><br><br>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+    <label class="error"><%if(errors) {%><%errors.forEach(function(error) {%><%if(error.param == 'psw') {%><%-error.msg%><%}%><%})%><%}%></label><br><br>
+
+    <button type="submit">Login</button>
+  </div>
+</form>
+</div>
+<div class="formDiv borderData">
+  <h3>I have used password hashing and stored the hashed password in the database. So, only hashed password will be present in the dbscript file</h3>
+  <h3>To test the application, please use 'SAIKUMAR112' as username and 'Skerpina@112' as password or signUp using the signUp link in the header</h3>
+</div>
+</div>
+    </main>
+    <%- include ('partials/footer.ejs'); -%>
+  </body>
+</html>

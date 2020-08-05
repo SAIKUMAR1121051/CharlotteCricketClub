@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Connection</title>
+<link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+</head>
+<body>
+
+  <% if(session!=undefined){ %>
+    <%- include ('partials/header2.ejs'); %>
+      <%- include ('partials/navigation2.ejs') -%>
+    <% } else{ %>
+      <%- include ('partials/header.ejs'); %>
+      <%- include ('partials/navigation.ejs') -%>
+    <% } %>
+<main>
+<div class="inlineDiv">
+  <div class="ConHeading firstOne">
+    <h2><%= connection.getConnectionName %></h2>
+      <img id="matchImage" src="/assets/images/match1.png" alt="No picture found">
+    </div>
+    <div class="lastTwo">
+      <p>Date: <%= connection.getDateandTime.split(' ')[0] %></p>
+        <p>Time: <%= connection.getDateandTime.split(' ')[1] %></p>
+          <p>Venue: <%= connection.getvenue %></p>
+      </div>
+      <div class="lastTwo">
+        <p>Are you going? 140 people are intrested.<p>
+          <form class="" action="<% if(session!=undefined){ %>
+				 				savedConnections?id=<%=connection.getConnectionID%>&action=save
+			 			<% } else { %>
+							login
+            <% } %>" method="<% if(session!=undefined){ %>post<% } else{ %>get<% } %>">
+            <input type="hidden" id="rsvp" name="rsvp" value="rsvp">
+          <button class="button" name="response" value="yes">Yes</button>
+<button class="button button3" name="response" value="no">No</button>
+<button class="button button2" name="response" value="maybe">Maybe</button>
+</form>
+        </div>
+  </div>
+  <div class="ConHeading">
+    <p>Details:
+    </p>
+     </div>
+     <div id="padding-leftRight">
+    <p> <%= connection.getDetails %></p>
+    </div>
+</main>
+<%- include ('partials/footer.ejs'); -%>
+</body>
+</html>

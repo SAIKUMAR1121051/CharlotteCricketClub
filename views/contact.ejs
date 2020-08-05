@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+  </head>
+  <body>
+    <% if(session!=undefined){ %>
+      <%- include ('partials/header2.ejs'); %>
+        <%- include ('partials/navigation2.ejs') -%>
+      <% } else{ %>
+        <%- include ('partials/header.ejs'); %>
+        <%- include ('partials/navigation.ejs') -%>
+      <% } %>
+    <div class="contactData">
+      <table id="customers">
+    <tr>
+      <th>Contact Type</th>
+      <th>Details</th>
+
+    </tr>
+    <tr>
+      <td>Mobile 1</td>
+      <td>+1 3095335884</td>
+
+    </tr>
+    <tr>
+      <td>Mobile 2</td>
+      <td>+1 7042521399</td>
+
+    </tr>
+    <tr>
+      <td>Mail</td>
+      <td>erpinasaikumar@gmail.com</td>
+
+    </tr>
+    <tr>
+      <td>Facebook</td>
+      <td>www.facebook.com/erpinasaikumar</td>
+
+    </tr>
+    <tr>
+      <td>Instagram</td>
+      <td>www.instagram.com/erpinasaikumar</td>
+    </tr>
+
+
+  </table>
+    </div>
+  </main>
+<%- include ('partials/footer.ejs'); -%>
+  </body>
+</html>

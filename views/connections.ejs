@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Connections</title>
+ <link rel="stylesheet" type="text/css" href="/assets/styles/stylesheet.css">
+
+</head>
+<body>
+  <% if(session!=undefined){ %>
+    <%- include ('partials/header2.ejs'); %>
+      <%- include ('partials/navigation2.ejs') -%>
+    <% } else{ %>
+      <%- include ('partials/header.ejs'); %>
+      <%- include ('partials/navigation.ejs') -%>
+    <% } %>
+<main>
+
+    <% myCategories.forEach(function(category){ %>
+<div class="ConHeading">
+  <h2><%= category %></h2>
+</div>
+<ul class="matchesList">
+  <% myConnections.forEach(function(item){ %>
+  <% if(item.getConnectionTopic == category){ %>
+  <li><a href="/Connection?id=<%= item.getConnectionID %>"><%= item.getConnectionName %></a></li>
+<% } %>
+<% }); %>
+  </ul>
+<% }); %>
+
+</main>
+<%- include ('partials/footer.ejs'); -%>
+</body>
+</html>
